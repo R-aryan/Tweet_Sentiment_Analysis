@@ -1,1 +1,6 @@
 pandas
+numpy
+Flask
+torch==1.7.0
+transformers==4.5.1
+sentencepiece
