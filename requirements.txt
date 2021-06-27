@@ -1,6 +1,9 @@
 pandas
 numpy
-Flask
 torch==1.7.0
 transformers==4.5.1
 sentencepiece
+flask
+flask_injector==0.12.3
+flask_restful==0.3.9
+flask_cors==3.0.10
