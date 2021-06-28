@@ -11,7 +11,8 @@ class Controller(Resource):
 
     @staticmethod
     def response_ok(data):
-        return Response(json.dumps(data, cls=ComplexEncoder), status=HttpStatus.ok_200.value, mimetype="application/json")
+        return Response(json.dumps(data, cls=ComplexEncoder), status=HttpStatus.ok_200.value, mimetype="application"
+                                                                                                       "/json")
 
     @staticmethod
     def response_error(message):

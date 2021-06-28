@@ -1,4 +1,11 @@
-from services.tweet_sentiment.api.server import server
+import os
+import sys
+
+# root_path = os.getcwd()
+# sys.path.append(root_path + '/services')
+# sys.path.append(root_path)
+# os.environ['PYTHONPATH'] = root_path + '/services' + root_path
+from tweet_sentiment.api import server
 
 app = server.app
 
