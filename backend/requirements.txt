@@ -3,7 +3,7 @@ numpy
 torch==1.7.0
 transformers==4.5.1
 sentencepiece
-flask==1.1.2
+flask
 flask_injector==0.12.3
 flask_restful==0.3.8
 flask_cors==3.0.10

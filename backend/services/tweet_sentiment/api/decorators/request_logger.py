@@ -1,7 +1,7 @@
 from flask import request
 from injector import inject
 
-from common.logging.logger import Logger
+from backend.common.logging.logger import Logger
 
 
 @inject

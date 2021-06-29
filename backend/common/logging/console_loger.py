@@ -1,4 +1,4 @@
-from common.logging.logger import Logger
+from backend.common.logging.logger import Logger
 
 
 class ConsoleLogger(Logger):

@@ -1,8 +1,8 @@
 from flask import Response
 from flask_restful import Resource
 
-from common.util.json import ComplexEncoder
-from common.util.http_status import HttpStatus
+from backend.common.util.json import ComplexEncoder
+from backend.common.util.http_status import HttpStatus
 
 import json
 

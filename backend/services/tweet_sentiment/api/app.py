@@ -5,7 +5,7 @@ import sys
 # sys.path.append(root_path + '/services')
 # sys.path.append(root_path)
 # os.environ['PYTHONPATH'] = root_path + '/services' + root_path
-from tweet_sentiment.api import server
+from backend.services.tweet_sentiment.api import server
 
 app = server.app
 

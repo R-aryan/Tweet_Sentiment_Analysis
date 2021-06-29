@@ -3,9 +3,6 @@ from flask_cors import CORS
 from flask_restful import Api
 
 
-from services.tweet_sentiment.api.decorators.request_logger import log_request
-
-
 class Server:
     __instance = None
 
@@ -28,12 +25,12 @@ class Server:
 
         @self.app.route("/", methods=["GET"])
         def render(path=None):
-            return "Project C Trading Platform Root Page"
+            return "Tweet Sentiment Analysis Root Page"
 
         # TODO: Allow restricted origins
         cors = CORS(self.app, resources={r"/*": {"origins": "*"}})
         # self.app.before_request(connect_db)
-        self.app.before_request(log_request)
+        # self.app.before_request(log_request)
         # self.app.after_request(disconnect_db)
 
     def verify_access_key_validation(self, access_key):

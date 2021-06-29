@@ -1,4 +1,4 @@
-from services.tweet_sentiment.api.controllers.controller import Controller
+from backend.services.tweet_sentiment.api.controllers.controller import Controller
 
 
 class ParamsController(Controller):

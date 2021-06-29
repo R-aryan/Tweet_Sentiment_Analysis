@@ -1,8 +1,7 @@
-import logging
-from common.logging.console_loger import ConsoleLogger
+from backend.common.logging.console_loger import ConsoleLogger
 from injector import Module, singleton
 
-from common.logging.logger import Logger
+from backend.common.logging.logger import Logger
 
 
 class Configuration(Module):
