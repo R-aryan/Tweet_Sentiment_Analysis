@@ -11,6 +11,6 @@ class Settings:
     BATCH_SIZE = 16
     EPOCHS = 4
     SEED_VAL = 42
-    SENTIMENT_DICT = {'neutral': 0, 'negative': 1, 'positive': 2}
+    LABEL_DICT = {'neutral': 0, 'negative': 1, 'positive': 2}
+    REVERSE_LABEL_DICT = {0: 'neutral', 1: 'negative', 2: 'positive'}
     NUM_LABELS = 3
-

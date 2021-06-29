@@ -1,10 +1,12 @@
 import torch
+from injector import inject
 from transformers import AlbertTokenizer
 
 from backend.services.tweet_sentiment.settings import Settings
 
 
 class Preprocess:
+    @inject
     def __init__(self, settings: Settings):
         self.settings = settings
         self.max_len = self.settings.MAX_LEN

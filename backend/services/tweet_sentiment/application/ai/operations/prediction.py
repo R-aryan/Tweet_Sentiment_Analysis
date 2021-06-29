@@ -1,9 +1,8 @@
-# Transformers
+import numpy as np
 import torch
 
-from transformers import AlbertTokenizer
+# Transformers
 from transformers import AlbertForSequenceClassification, AdamW, AlbertConfig
-from transformers import get_linear_schedule_with_warmup
 
 from injector import inject
 
@@ -19,13 +18,12 @@ class Prediction:
         self.device = self.__check_device()
         # Load the ALBERT tokenizer.
         print('Loading ALBERT tokenizer...')
-        self.tokenizer = AlbertTokenizer.from_pretrained('albert-base-v2', do_lower_case=True)
         self.__model = None
         self.__load_model()
 
-    def run(self, data):
+    def run_prediction(self, data):
         input_ids, attention_mask = self.preprocess.preprocess_data(data)
-        self.__predict(input_ids, attention_mask)
+        return self.__predict(input_ids, attention_mask)
 
     def __check_device(self):
         if torch.cuda.is_available():
@@ -64,8 +62,20 @@ class Prediction:
             print("Following error occurred while loading the model------", str(ex))
 
     def __predict(self, input_ids, attention_mask, token_type_ids=None):
-        result = self.__model(
-            input_ids=input_ids,
-            token_type_ids=token_type_ids,
-            attention_mask=attention_mask
-        )
+        predictions = []
+        with torch.no_grad():
+            result = self.__model(
+                input_ids=input_ids,
+                token_type_ids=token_type_ids,
+                attention_mask=attention_mask
+            )
+        logits = result[0]
+        logits = torch.softmax(logits, dim=1).cpu().detach().numpy()
+        predictions.append(logits)
+        return self.__post_process(predictions[0])
+
+    def __post_process(self, result):
+        label = np.argmax(result, axis=1).flatten()
+        sentiment = self.settings.REVERSE_LABEL_DICT[label[0]]
+
+        return sentiment
