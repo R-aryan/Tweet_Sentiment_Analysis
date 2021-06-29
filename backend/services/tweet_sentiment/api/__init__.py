@@ -8,5 +8,5 @@ api_name = "/tweet_sentiment/api/v1/"
 
 server.api.add_resource(ParamsController, api_name + 'query', methods=["POST"])
 
-flask_inject = FlaskInjector(app=server.app, modules=[Configuration])
+flask_injector = FlaskInjector(app=server.app, modules=[Configuration])
 

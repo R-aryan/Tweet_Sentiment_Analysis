@@ -3,11 +3,14 @@ import sys
 
 
 class Settings:
-    root_path = os.getcwd()
-    service_path = root_path + "\\backend\\services\\tweet_sentiment\\application\\"
+    PROJ_NAME = 'Tweet_Sentiment_Analysis'
+    root_path = os.getcwd().split(PROJ_NAME)[0] + "\\" + PROJ_NAME + "\\"
+    # print(root_path)
+    service_path = root_path + "backend\\services\\tweet_sentiment\\application\\"
     # model configuration
     MAX_LEN = 150
-    MODEL_PATH = service_path + '\\ai\\weights\\albert_weight\\weights_v1\\pytorch_model.bin'
+    MODEL_PATH = service_path + "ai\\weights\\albert_weight\\weights_v1\\pytorch_model.bin"
+    # print(MODEL_PATH)
     BATCH_SIZE = 16
     EPOCHS = 4
     SEED_VAL = 42

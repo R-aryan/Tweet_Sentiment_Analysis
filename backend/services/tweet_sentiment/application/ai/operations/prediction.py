@@ -12,8 +12,7 @@ from backend.services.tweet_sentiment.application.ai.operations.preprocess impor
 
 class Prediction:
     @inject
-    def __init__(self, settings: Settings, preprocess: Preprocess):
-        self.settings = settings
+    def __init__(self, preprocess: Preprocess):
         self.preprocess = preprocess
         self.device = self.__check_device()
         # Load the ALBERT tokenizer.
@@ -47,7 +46,7 @@ class Prediction:
         try:
             self.__model = AlbertForSequenceClassification.from_pretrained(
                 "albert-large-v2",  # Use the 12-layer BERT model, with an uncased vocab.
-                num_labels=self.settings.NUM_LABELS,
+                num_labels=self.preprocess.settings.NUM_LABELS,
                 # The number of output labels--2 for binary classification.# You can increase this for multi-class tasks
                 output_attentions=False,  # Whether the model returns attentions weights.
                 output_hidden_states=False,  # Whether the model returns all hidden-states.
@@ -55,7 +54,7 @@ class Prediction:
             )
 
             if self.__model:
-                self.__model.load_state_dict(torch.load(self.settings.MODEL_PATH,
+                self.__model.load_state_dict(torch.load(self.preprocess.settings.MODEL_PATH,
                                                         map_location=torch.device(self.device)))
 
         except BaseException as ex:
@@ -76,6 +75,6 @@ class Prediction:
 
     def __post_process(self, result):
         label = np.argmax(result, axis=1).flatten()
-        sentiment = self.settings.REVERSE_LABEL_DICT[label[0]]
+        sentiment = self.preprocess.settings.REVERSE_LABEL_DICT[label[0]]
 
         return sentiment

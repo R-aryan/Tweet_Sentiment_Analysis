@@ -1,10 +1,12 @@
 from flask import request
+from injector import inject
 
 from backend.services.tweet_sentiment.api.controllers.controller import Controller
 from backend.services.tweet_sentiment.application.ai.operations.prediction import Prediction
 
 
 class ParamsController(Controller):
+    @inject
     def __init__(self, prediction: Prediction):
         self.prediction = prediction
 

@@ -27,7 +27,7 @@ class Preprocess:
         attention_mask = inputs["attention_mask"]
 
         # Convert the lists into tensors.
-        input_ids = torch.cat(input_ids, dim=0)
-        attention_mask = torch.cat(attention_mask, dim=0)
+        input_ids = torch.tensor(input_ids, dtype=torch.long)
+        attention_mask = torch.tensor(attention_mask, dtype=torch.long)
 
         return input_ids, attention_mask
