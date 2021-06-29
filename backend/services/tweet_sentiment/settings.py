@@ -1,2 +1,4 @@
 class Settings:
-    pass
+    # model configuration
+    MAX_LEN = 150
+    MODEL_PATH = ''
