@@ -10,6 +10,8 @@ Steps to Run the Project:
 Following are the screenshots for the output, and the request.
 
 - Request sample 
-![Sample request](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/develop/msc/request_sample.png).
+![Sample request](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/develop/msc/request_sample.png)
+  <br>
+  <br>
 - Response Sample
 ![Sample response](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/develop/msc/response_sample.png)
