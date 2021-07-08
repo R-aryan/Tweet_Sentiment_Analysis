@@ -22,6 +22,9 @@ class Prediction:
 
     def run_prediction(self, data):
         input_ids, attention_mask = self.preprocess.preprocess_data(data)
+        input_ids = input_ids.to(self.device)
+        attention_mask = attention_mask.to(self.device)
+
         return self.__predict(input_ids, attention_mask)
 
     def __check_device(self):
