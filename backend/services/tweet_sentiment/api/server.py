@@ -35,18 +35,7 @@ class Server:
         self.app.before_request(log_request)
         # self.app.after_request(disconnect_db)
 
-    def verify_access_key_validation(self, access_key):
-        is_exist = False
-        is_expired = True
-        role = None
-        access_keys = self.app.config['ACCESS_KEYS']
-        if access_key in access_keys:
-            is_exist = True
-            is_expired = access_keys[access_key].is_expired()
-            role = access_keys[access_key].get_role()
-
-        return is_exist, is_expired, role
-
+   
     def run(self):
         self.app.config['PROPAGATE_EXCEPTIONS'] = True
         # self.app.register_error_handler(Exception, global_handle_error)
