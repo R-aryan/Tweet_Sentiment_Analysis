@@ -11,11 +11,11 @@ Steps to Run the Project:
 
 - Request sample 
 
-![Sample request](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/develop/msc/request_sample.png)
+![Sample request](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/main/msc/request_sample.png)
 
   <br>
   <br>
   
 - Response Sample
 
-![Sample response](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/develop/msc/response_sample.png)
+![Sample response](https://github.com/R-aryan/Tweet_Sentiment_Analysis/blob/main/msc/response_sample.png)
